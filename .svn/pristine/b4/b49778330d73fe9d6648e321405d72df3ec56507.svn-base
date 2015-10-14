@@ -1,0 +1,110 @@
+1、注解，需要继承LXH_Application.java，@MyAnnotation(id = R.id.imageView1,click = true)
+（使用activity，fragmentactivity，fragment时使用）
+(LXH_Activity.java，LXH_FragmentActivity.java，LXH_Fragment.java)
+2、下载文件类LXH_DownloadManager
+downloadManager.setDownLoadCallback(new LXH_DownLoadCallback() {
+					@Override
+					public void onSuccess(String url) {
+						
+						super.onSuccess(url);
+					}
+
+					@Override
+					public void onLoading(String url, long totalSize,
+							long currentSize, long speed) {
+						// TODO Auto-generated method stub
+						super.onLoading(url, totalSize, currentSize, speed);
+						
+					}
+
+					@Override
+					public void onFailure(String url, String strMsg) {
+						// TODO Auto-generated method stub
+						super.onFailure(url, strMsg);
+						}
+				});
+				
+3、HTTP访问类
+LXH_HttpClient client = new LXH_HttpClient();
+clientget(url, new AsyncHttpResponseHandler() {
+});
+4、图片加载类
+ImageManager2.from(this).displayImage(img, url, R.drawable.abc_ab_bottom_solid_dark_holo);
+5、工具类
+1）动画工具类AnimationUtil.java
+2）APP管理类AppUtil.java
+3）时间处理类DateUtil.java
+4）Dialog弹出类DialogUtil.java
+5）文件操作类FileUtil.java
+6）数字操作类MathUtil.java
+7）MD5加密类Md5.java
+8）日志打印类MyLog.java
+9）Sharedpreferences 存储类SharedpreferencesUtil.java
+10）字符串处理类StrUtil.java
+11）Toast提示信息类ToastUtil.java
+12）View处理类ViewUtil.java
+13、图片的放大缩小ScaleImageView
+ ScaleImageView image;
+  image.setCanDoubleClick(!image.canDoubleClick());
+    mBtn1.setText("否可双击缩放：" + image.canDoubleClick());
+   image.setCanRotate(!image.canRotate());
+    mBtn2.setText("是否可旋转" + image.canRotate());
+14、数据库使用方法
+DB db=DB.create();//可以传很多参数，自己可以点击出来看看
+db. 。。。。。。进行数据库增删改查
+
+
+
+========================================================================================
+使用http post上传 多张图片
+
+
+				String url = GameURL.URL
+						+ "interfaceapi/know/knowquestion!save.action?";
+				FormFile formfileArr[] = new FormFile[Data.lt.size()];
+				for (int i = 0; i < formfileArr.length; i++) {
+					int ii = i + 1;
+					File imageFile = new File(ALBUM_PATH + Data.ltstr.get(i));
+					if (imageFile.exists()) {
+					}
+					FormFile formfile = new FormFile(imageFile.getName(),
+							imageFile, "fileImg", "multipart/form-data");
+					formfileArr[i] = formfile;
+				}
+				HashMap<String, String> map = new HashMap<String, String>();
+				map.put("token", GameURL.Token(AskingQuestionsActivity.this));
+				map.put("text", ed_question_text.getText().toString());
+				map.put("additionaltext", ed_additional_text.getText()
+						.toString());
+				map.put("knlId", String.valueOf(rank.getId()));
+				map.put("reweardpoints", URLEncoder.encode(tv_dialog_score
+						.getText().toString(), "UTF-8"));
+				try {
+					LXH_HttpClient client = new LXH_HttpClient();
+					String str = client.SetFilesPost(url, map, formfileArr);
+					isSuccess = true;
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					try {
+						for (int i = 0; i < Data.ltstr.size(); i++) {
+							File file = new File(Data.ltstr.get(i));
+							file.delete();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					System.gc();
+					System.runFinalization();
+					for (Bitmap bitmap : Data.lt) {
+						AbImageUtil.releaseBitmap(bitmap);
+					}
+					Data.ltstr.clear();
+					Data.lt.clear();
+					isSuccess = false;
+				}
+			
+
+========================
+使用滚动到底部自动加载,所包含的子控件如listivew，不能添加OnScrollListener
+mAbPullToRefreshView.setLoadMoreEnable(false);
+mAbPullToRefreshView.setAutoLoadMoreEnable(true);

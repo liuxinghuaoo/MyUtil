@@ -1,0 +1,27 @@
+int attr alertBtBackground 0x7f010005
+int attr alertBtColor 0x7f010006
+int attr alertBtHeight 0x7f010009
+int attr alertBtSize 0x7f010007
+int attr alertBtText 0x7f010004
+int attr alertBtWidth 0x7f010008
+int attr alertImg 0x7f01000a
+int attr alertTvColor 0x7f010002
+int attr alertTvSize 0x7f010003
+int attr alertTvText 0x7f010001
+int attr borderWidth 0x7f010000
+int dimen activity_horizontal_margin 0x7f030000
+int drawable a 0x7f020000
+int drawable ic_launcher 0x7f020001
+int[] styleable AbPullToRefreshView { 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a }
+int styleable AbPullToRefreshView_alertBtBackground 4
+int styleable AbPullToRefreshView_alertBtColor 5
+int styleable AbPullToRefreshView_alertBtHeight 8
+int styleable AbPullToRefreshView_alertBtSize 6
+int styleable AbPullToRefreshView_alertBtText 3
+int styleable AbPullToRefreshView_alertBtWidth 7
+int styleable AbPullToRefreshView_alertImg 9
+int styleable AbPullToRefreshView_alertTvColor 1
+int styleable AbPullToRefreshView_alertTvSize 2
+int styleable AbPullToRefreshView_alertTvText 0
+int[] styleable CircularProgress { 0x7f010000 }
+int styleable CircularProgress_borderWidth 0

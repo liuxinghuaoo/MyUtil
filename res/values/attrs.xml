@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircularProgress">
+        <attr name="borderWidth" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="AbPullToRefreshView">
+        <attr name="alertTvText" format="string" />
+        <attr name="alertTvColor" format="color" />
+        <attr name="alertTvSize" format="dimension" />
+        <attr name="alertBtText" format="string" />
+        <attr name="alertBtBackground" format="reference|color" />
+        <attr name="alertBtColor" format="color" />
+        <attr name="alertBtSize" format="dimension" />
+        <attr name="alertBtWidth" format="dimension"/>
+        <attr name="alertBtHeight" format="dimension"/>
+        <attr name="alertImg" format="reference" />
+    </declare-styleable>
+
+</resources>
